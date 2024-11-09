@@ -1,0 +1,24 @@
+// Set group and version to match Maven coordinates
+group = 'com.github.glitchruk'
+version = '0.1.0'
+
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+// Specify Java language level to match Maven's source and target version
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+jar {
+    archiveBaseName.set("tinytools")
+    archiveVersion.set(version)
+}
