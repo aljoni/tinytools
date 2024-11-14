@@ -50,15 +50,15 @@ package com.github.glitchruk.tinytools.concurrent;
  * @param <T> the type of the value to be lazily initialized
  */
 public class Lazy<T> {
-    private volatile T value;
-    private volatile boolean initialized;
+    private T value;
+    private boolean initialized;
 
     public Lazy() {
         this.value = null;
         this.initialized = false;
     }
 
-    public T get() {
+    public synchronized T get() {
         if (!initialized) {
             throw new IllegalStateException("Lazy value not initialized");
         }
