@@ -18,13 +18,13 @@ package com.github.glitchruk.tinytools.concurrent;
  */
 
 /**
- * A thread-safe utility class for lazy initialization.
+ * A thread-safe utility class for late initialization.
  * <p>
- * The {@code Lazy} class provides a mechanism for deferred initialization
+ * The {@code Late} class provides a mechanism for deferred initialization
  * of an object. The value is set only once and can then be accessed multiple times.
  * This is particularly useful in scenarios where an expensive computation or
- * initialization should be postponed until the first access, while maintaining
- * thread safety and ensuring efficient subsequent reads.
+ * initialization should only be performed once, while maintaining thread safety
+ * and ensuring efficient subsequent reads.
  * </p>
  *
  * <p><strong>Key Features:</strong></p>
@@ -54,7 +54,7 @@ package com.github.glitchruk.tinytools.concurrent;
  * <p><strong>Example Usage:</strong></p>
  * <pre>{@code
  * public final class Person {
- *     private final Lazy<Integer> age = new Lazy<>();
+ *     private final Late<Integer> age = new Late<>();
  *
  *     public Person() {
  *         // Constructor does not set age; it will be initialized later
@@ -79,16 +79,16 @@ package com.github.glitchruk.tinytools.concurrent;
  * }
  * }</pre>
  *
- * @param <T> the type of the value to be lazily initialized
+ * @param <T> the type of the value to be initialized late
  */
-public class Lazy<T> {
+public class Late<T> {
     private T value;
     private boolean initialized;
 
     /**
-     * Creates a new {@code Lazy} instance with no initial value.
+     * Creates a new {@code Late} instance with no initial value.
      */
-    public Lazy() {
+    public Late() {
         this.value = null;
         this.initialized = false;
     }
@@ -101,7 +101,7 @@ public class Lazy<T> {
      */
     public synchronized void set(final T value) {
         if (initialized) {
-            throw new IllegalStateException("Lazy value already initialized");
+            throw new IllegalStateException("Late value already initialized");
         }
         this.value = value;
         this.initialized = true;
@@ -115,7 +115,7 @@ public class Lazy<T> {
      */
     public synchronized T get() {
         if (!initialized) {
-            throw new IllegalStateException("Lazy value not initialized");
+            throw new IllegalStateException("Late value not initialized");
         }
         return value;
     }

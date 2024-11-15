@@ -1,6 +1,6 @@
 # TinyTools
 
-![Version](https://img.shields.io/badge/Version-0.2.0-blue)
+![Version](https://img.shields.io/badge/Version-0.3.0-blue)
 ![License: LGPLv3](https://img.shields.io/badge/License-LGPLv3-blue.svg)
 
 A collection of small, useful tools for Java development. TinyTools aims to provide lightweight utilities that simplify
@@ -50,7 +50,7 @@ Add the following dependency to your `pom.xml` file:
 <dependency>
     <groupId>com.github.glitchruk</groupId>
     <artifactId>tinytools</artifactId>
-    <version>0.2.0</version>
+    <version>0.3.0</version>
 </dependency>
 ```
 
@@ -61,7 +61,7 @@ Add the following dependency to your `pom.xml` file:
 
 ```groovy
 dependencies {
-    implementation files('libs/tinytools-0.2.0.jar')
+    implementation files('libs/tinytools-0.3.0.jar')
 }
 ```
 
@@ -71,14 +71,14 @@ A list of the components in this library.
 
 | Class                                                                          | Description                                          |
 |--------------------------------------------------------------------------------|------------------------------------------------------|
-| [`Lazy<T>`](src/main/java/com/github/glitchruk/tinytools/concurrent/Lazy.java) | A thread-safe utility class for lazy initialization. |
+| [`Late<T>`](src/main/java/com/github/glitchruk/tinytools/concurrent/Late.java) | A thread-safe utility class for late initialization. |
 | [`Memo<T>`](src/main/java/com/github/glitchruk/tinytools/concurrent/Memo.java) | A thread-safe utility class for memoization.         |
 
-### Lazy\<T\>
+### Late\<T\>
 
-The `Lazy` class allows for deferred initialization of an object, where the value is only set once and accessed multiple
-times. This is useful in cases where an expensive computation or initialization needs to be deferred until the first
-access, while ensuring thread safety and efficient access for subsequent reads.
+The `Late` class allows for deferred initialization of an object, where the value is only set once and accessed multiple
+times. This is useful in cases where an expensive computation or initialization needs to only be performed once, while
+ensuring thread safety and efficient access for subsequent reads.
 
 #### Key Features
 
@@ -90,7 +90,7 @@ access, while ensuring thread safety and efficient access for subsequent reads.
 
 ```java
 public final class Person {
-    private final Lazy<Integer> age = new Lazy<>();
+    private final Late<Integer> age = new Late<>();
 
     public Person() {
         // Constructor does not set age; it will be set later
@@ -109,8 +109,8 @@ public final class Person {
 public class Main {
     public static void main(String[] args) {
         Person person = new Person();
-        person.initializeAge(25); // Deferred initialization
-        System.out.println("Age: " + person.getAge()); // Outputs: Age: 25
+        person.initializeAge(42); // Deferred initialization
+        System.out.println("Age: " + person.getAge()); // Outputs: Age: 42
     }
 }
 ```
