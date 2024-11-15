@@ -11,6 +11,35 @@
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
+        <maven.javadoc.version>3.11.1</maven.javadoc.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${maven.javadoc.version}</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <release>${maven.compiler.target}</release>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License v3.0</name>
+            <url>https://www.gnu.org/licenses/lgpl-3.0.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/glitchruk/tinytools</url>
+        <connection>scm:git:git://github.com/glitchruk/tinytools.git</connection>
+        <developerConnection>scm:git:ssh://github.com/glitchruk/tinytools.git</developerConnection>
+    </scm>
 </project>
