@@ -1,9 +1,9 @@
-name: CI for v0.x.x
+name: Package JAR
 
 on:
   push:
-    tags:
-      - 'v0.*'
+    branches:
+      - main
   pull_request:
     branches:
       - main
@@ -33,6 +33,25 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven
 
-      # Build and run tests
+      # Build and Test
       - name: Build and test
-        run: mvn clean verify
+        run: mvn clean verify -DskipTests=false -DskipDocs=true
+
+      # Package the JAR
+      - name: Package the JAR
+        if: success() # Only run if the tests were successful
+        run: mvn package
+
+      # Upload the JAR as an artifact with versioned name
+      - name: Upload versioned JAR Artifact
+        if: success()
+        uses: actions/upload-artifact@v3
+        with:
+          name: tinytools-${{ steps.get_version.outputs.version }}-jar
+          path: target/*.jar
+
+      # Extract version from pom.xml
+      - name: Get version
+        id: get_version
+        run: echo "version=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
+

@@ -1,7 +1,8 @@
 # TinyTools
 
-![Version](https://img.shields.io/badge/Version-0.4.0-blue)
+![Version](https://img.shields.io/badge/Version-0.4.2-blue)
 ![License: LGPLv3](https://img.shields.io/badge/License-LGPLv3-blue.svg)
+![Build Status](https://github.com/glitchruk/tinytools/actions/workflows/ci.yml/badge.svg)
 
 A collection of small, useful tools for Java development. TinyTools aims to provide lightweight utilities that simplify
 common programming tasks, focusing on thread safety, simplicity, and ease of use.
@@ -50,7 +51,7 @@ Add the following dependency to your `pom.xml` file:
 <dependency>
     <groupId>com.github.glitchruk</groupId>
     <artifactId>tinytools</artifactId>
-    <version>0.4.0</version>
+    <version>0.4.2</version>
 </dependency>
 ```
 
@@ -61,7 +62,7 @@ Add the following dependency to your `pom.xml` file:
 
 ```groovy
 dependencies {
-    implementation files('libs/tinytools-0.4.0.jar')
+    implementation files('libs/tinytools-0.4.2.jar')
 }
 ```
 
