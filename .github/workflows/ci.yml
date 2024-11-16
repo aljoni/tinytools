@@ -47,7 +47,7 @@ jobs:
         if: success()
         uses: actions/upload-artifact@v3
         with:
-          name: tinytools-${{ steps.get_version.outputs.version }}-jar
+          name: tinytools-${{ env.version }}-jar
           path: target/*.jar
 
       # Extract version from pom.xml
