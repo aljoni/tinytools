@@ -1,4 +1,4 @@
-name: Package JAR
+name: Test and Package
 
 on:
   push:
