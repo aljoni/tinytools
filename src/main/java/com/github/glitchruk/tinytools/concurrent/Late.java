@@ -17,6 +17,8 @@ package com.github.glitchruk.tinytools.concurrent;
  * along with TinyTools. If not, see <https://www.gnu.org/licenses/>.
  */
 
+import java.util.Objects;
+
 /**
  * A thread-safe utility class for late initialization.
  * <p>
@@ -96,10 +98,11 @@ public class Late<T> {
     /**
      * Initializes the value if it has not already been set.
      *
-     * @param value the value to set
+     * @param value the value to set, cannot be null
      * @throws IllegalStateException if the value has already been initialized
      */
     public synchronized void set(final T value) {
+        Objects.requireNonNull(value, "Late value cannot be null");
         if (initialized) {
             throw new IllegalStateException("Late value already initialized");
         }

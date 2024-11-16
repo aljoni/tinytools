@@ -1,74 +1,57 @@
-group = 'com.github.glitchruk'
-version = '0.3.0'
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id 'org.jetbrains.dokka' version '1.8.20'
+}
 
-apply plugin: 'java'
+group = 'com.github.glitchruk'
+version = '0.4.0'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
 
 repositories {
     mavenCentral()
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_21
-    targetCompatibility = JavaVersion.VERSION_21
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.11.3'
+}
+
+tasks.test {
+    useJUnitPlatform()
 }
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
-tasks.withType(Javadoc) {
-    options.encoding = 'UTF-8'
-    options.addBooleanOption('html5', true)
-}
-
-jar {
-    archiveBaseName.set("tinytools")
-    archiveVersion.set(version)
-
-    // Add metadata matching the POM
-    manifest {
-        attributes(
-                'Implementation-Title': project.name,
-                'Implementation-Version': version,
-                'Implementation-Vendor': 'com.github.glitchruk',
-                'Specification-Vendor': 'GNU Lesser General Public License v3.0',
-                'Specification-URL': 'https://www.gnu.org/licenses/lgpl-3.0.html'
-        )
-    }
-}
-
-// Publishing metadata for Maven
 publishing {
     publications {
         mavenJava(MavenPublication) {
             from components.java
-
             pom {
-                name.set("TinyTools")
-                description.set("A collection of small, useful tools for Java development.")
-                url.set("https://github.com/glitchruk/tinytools")
+                name = 'tinytools'
+                description = 'A collection of small, useful tools for Java development.'
+                url = 'https://github.com/glitchruk/tinytools'
 
                 licenses {
                     license {
-                        name.set("GNU Lesser General Public License v3.0")
-                        url.set("https://www.gnu.org/licenses/lgpl-3.0.html")
-                        distribution.set("repo")
+                        name = 'GNU Lesser General Public License v3.0'
+                        url = 'https://www.gnu.org/licenses/lgpl-3.0.html'
+                        distribution = 'repo'
                     }
                 }
 
                 scm {
-                    url.set("https://github.com/glitchruk/tinytools")
-                    connection.set("scm:git:git://github.com/glitchruk/tinytools.git")
-                    developerConnection.set("scm:git:ssh://github.com/glitchruk/tinytools.git")
+                    connection = 'scm:git:git://github.com/glitchruk/tinytools.git'
+                    developerConnection = 'scm:git:ssh://github.com/glitchruk/tinytools.git'
+                    url = 'https://github.com/glitchruk/tinytools'
                 }
             }
-        }
-    }
-
-    repositories {
-        maven {
-            name = "local"
-            url = uri("$buildDir/repo")
         }
     }
 }

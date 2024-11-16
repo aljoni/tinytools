@@ -17,6 +17,8 @@ package com.github.glitchruk.tinytools.concurrent;
  * along with TinyTools. If not, see <https://www.gnu.org/licenses/>.
  */
 
+import java.util.Objects;
+
 /**
  * A thread-safe utility class for memoization.
  * <p>
@@ -122,10 +124,11 @@ public class Memo<T> {
      * Sets the value of the memoized object. This method can only be called once,
      * and subsequent attempts to set the value will throw an {@link IllegalStateException}.
      *
-     * @param value the value to be memoized
+     * @param value the value to be memoized, cannot be null
      * @throws IllegalStateException if the value has already been set
      */
     public synchronized void set(final T value) {
+        Objects.requireNonNull(value, "Memo value cannot be null");
         if (initialized) {
             throw new IllegalStateException("Memo value already initialized");
         }
@@ -137,10 +140,11 @@ public class Memo<T> {
      * Sets the value of the memoized object if it has not been set yet.
      * If the value has already been set, the existing value is returned.
      *
-     * @param value the value to be memoized
+     * @param value the value to be memoized, cannot be null
      * @return the existing value if it has already been set, otherwise the new value
      */
     public synchronized T setIfAbsent(final T value) {
+        Objects.requireNonNull(value, "Memo value cannot be null");
         if (initialized) {
             return value;
         }
@@ -153,9 +157,10 @@ public class Memo<T> {
      * Resets the value of the memoized object and sets a new value.
      * This method can be used to reinitialize the value when needed.
      *
-     * @param value the new value to be memoized
+     * @param value the new value to be memoized, cannot be null
      */
     public synchronized void resetAndSet(final T value) {
+        Objects.requireNonNull(value, "Memo value cannot be null");
         this.value = value;
         this.initialized = true;
     }
