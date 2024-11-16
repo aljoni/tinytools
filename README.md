@@ -1,6 +1,6 @@
 # TinyTools
 
-![Version](https://img.shields.io/badge/Version-0.4.5-blue)
+![Version](https://img.shields.io/badge/Version-0.4.6-blue)
 ![License: LGPLv3](https://img.shields.io/badge/License-LGPLv3-blue.svg)
 ![Build Status](https://github.com/glitchruk/tinytools/actions/workflows/ci.yml/badge.svg)
 
@@ -51,7 +51,7 @@ Add the following dependency to your `pom.xml` file:
 <dependency>
     <groupId>com.github.glitchruk</groupId>
     <artifactId>tinytools</artifactId>
-    <version>0.4.5</version>
+    <version>0.4.6</version>
 </dependency>
 ```
 
@@ -62,7 +62,7 @@ Add the following dependency to your `pom.xml` file:
 
 ```groovy
 dependencies {
-    implementation files('libs/tinytools-0.4.5.jar')
+    implementation files('libs/tinytools-0.4.6.jar')
 }
 ```
 

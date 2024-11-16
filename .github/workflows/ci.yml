@@ -42,16 +42,10 @@ jobs:
         if: success() # Only run if the tests were successful
         run: mvn package
 
-      # Upload the JAR as an artifact with versioned name
-      - name: Upload versioned JAR Artifact
+      # Upload the JAR as an artifact
+      - name: Upload JAR Artifact
         if: success()
         uses: actions/upload-artifact@v3
         with:
-          name: tinytools-${{ env.version }}-jar
+          name: tinytools-jar
           path: target/*.jar
-
-      # Extract version from pom.xml
-      - name: Get version
-        id: get_version
-        run: echo "version=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
-
