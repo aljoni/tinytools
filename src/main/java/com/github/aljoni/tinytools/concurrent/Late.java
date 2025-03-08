@@ -1,4 +1,4 @@
-package com.github.glitchruk.tinytools.concurrent;
+package com.github.aljoni.tinytools.concurrent;
 
 /*
  * This file is part of TinyTools.

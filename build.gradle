@@ -4,7 +4,7 @@ plugins {
     id 'org.jetbrains.dokka' version '1.8.20'
 }
 
-group = 'com.github.glitchruk'
+group = 'com.github.aljoni'
 version = '0.4.6'
 
 java {
@@ -36,7 +36,7 @@ publishing {
             pom {
                 name = 'tinytools'
                 description = 'A collection of small, useful tools for Java development.'
-                url = 'https://github.com/glitchruk/tinytools'
+                url = 'https://github.com/aljoni/tinytools'
 
                 licenses {
                     license {
@@ -47,9 +47,9 @@ publishing {
                 }
 
                 scm {
-                    connection = 'scm:git:git://github.com/glitchruk/tinytools.git'
-                    developerConnection = 'scm:git:ssh://github.com/glitchruk/tinytools.git'
-                    url = 'https://github.com/glitchruk/tinytools'
+                    connection = 'scm:git:git://github.com/aljoni/tinytools.git'
+                    developerConnection = 'scm:git:ssh://github.com/aljoni/tinytools.git'
+                    url = 'https://github.com/aljoni/tinytools'
                 }
             }
         }

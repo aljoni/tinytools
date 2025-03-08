@@ -1,4 +1,4 @@
-package com.github.glitchruk.tinytools.concurrent;
+package com.github.aljoni.tinytools.concurrent;
 
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;

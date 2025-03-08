@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.glitchruk</groupId>
+    <groupId>com.github.aljoni</groupId>
     <artifactId>tinytools</artifactId>
     <version>0.4.6</version>
     <description>A collection of small, useful tools for Java development.</description>
@@ -56,8 +56,8 @@
     </licenses>
 
     <scm>
-        <url>https://github.com/glitchruk/tinytools</url>
-        <connection>scm:git:git://github.com/glitchruk/tinytools.git</connection>
-        <developerConnection>scm:git:ssh://github.com/glitchruk/tinytools.git</developerConnection>
+        <url>https://github.com/aljoni/tinytools</url>
+        <connection>scm:git:git://github.com/aljoni/tinytools.git</connection>
+        <developerConnection>scm:git:ssh://github.com/aljoni/tinytools.git</developerConnection>
     </scm>
 </project>

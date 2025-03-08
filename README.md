@@ -49,7 +49,7 @@ Add the following dependency to your `pom.xml` file:
 
 ```xml
 <dependency>
-    <groupId>com.github.glitchruk</groupId>
+    <groupId>com.github.aljoni</groupId>
     <artifactId>tinytools</artifactId>
     <version>0.4.6</version>
 </dependency>

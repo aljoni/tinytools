@@ -1,4 +1,4 @@
-package com.github.glitchruk.tinytools.concurrent;
+package com.github.aljoni.tinytools.concurrent;
 
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
@@ -38,7 +38,7 @@ public class LateTest {
         }
 
         assertTrue(terminated, "Executor should terminate");
-        assertEquals(exceptions.get(), NUM_THREADS - 1, "Exactly one thread should successfully set the value, all others should throw exceptions");
+        assertEquals(NUM_THREADS - 1, exceptions.get(), "Exactly one thread should successfully set the value, all others should throw exceptions");
         assertTrue(late.isInitialized(), "Late value should be initialized");
     }
 
