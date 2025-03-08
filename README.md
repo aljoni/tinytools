@@ -2,7 +2,7 @@
 
 ![Version](https://img.shields.io/badge/Version-0.4.6-blue)
 ![License: LGPLv3](https://img.shields.io/badge/License-LGPLv3-blue.svg)
-![Build Status](https://github.com/glitchruk/tinytools/actions/workflows/ci.yml/badge.svg)
+![Build Status](https://github.com/aljoni/tinytools/actions/workflows/ci.yml/badge.svg)
 
 A collection of small, useful tools for Java development. TinyTools aims to provide lightweight utilities that simplify
 common programming tasks, focusing on thread safety, simplicity, and ease of use.
@@ -18,7 +18,7 @@ To use TinyTools, use the following steps for either Maven or Gradle:
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/glitchruk/tinytools.git
+git clone https://github.com/aljoni/tinytools.git
 ```
 
 ### 2. Build the project
@@ -70,10 +70,10 @@ dependencies {
 
 A list of the components in this library.
 
-| Class                                                                          | Description                                          |
-|--------------------------------------------------------------------------------|------------------------------------------------------|
-| [`Late<T>`](src/main/java/com/github/glitchruk/tinytools/concurrent/Late.java) | A thread-safe utility class for late initialization. |
-| [`Memo<T>`](src/main/java/com/github/glitchruk/tinytools/concurrent/Memo.java) | A thread-safe utility class for memoization.         |
+| Class                                                                       | Description                                          |
+|-----------------------------------------------------------------------------|------------------------------------------------------|
+| [`Late<T>`](src/main/java/com/github/aljoni/tinytools/concurrent/Late.java) | A thread-safe utility class for late initialization. |
+| [`Memo<T>`](src/main/java/com/github/aljoni/tinytools/concurrent/Memo.java) | A thread-safe utility class for memoization.         |
 
 ### Late\<T\>
 
